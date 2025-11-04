@@ -4,232 +4,264 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ben-Innov Digital | Formations & Marketing Digital</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Police personnalisée -->
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #e9f7ef, #d0f0ff);
-      margin: 0;
-      padding: 0;
-      color: #222;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    header img {
-      width: 150px;
-      margin-bottom: 15px;
-    }
-    header h1 {
-      color: #0b7dda;
-      font-size: 28px;
-      margin: 10px 0 5px;
-    }
-    header p {
-      font-size: 16px;
-      color: #444;
-    }
-    main {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    h2 {
-      color: #0b7dda;
-      border-left: 5px solid #0b7dda;
-      padding-left: 10px;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li::before {
-      content: "• ";
-      color: #0b7dda;
+    @font-face {
+      font-family: 'More Sugar';
+      src: url('fonts/MoreSugar-Regular.ttf') format('truetype');
     }
 
-    /* --- ÉQUIPE --- */
-    .team {
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #222;
+      background-color: #f8fdfb;
+      overflow-x: hidden;
+    }
+
+    /* --- SECTION HERO --- */
+    .hero {
+      position: relative;
+      background: url("images/background/hero-bg.jpg") center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 45, 75, 0.45);
+    }
+
+    .hero .logo {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 120px;
+      z-index: 2;
+    }
+
+    .hero-content {
+      z-index: 3;
+      max-width: 700px;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'More Sugar', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      color: #e5fdf5;
+      text-shadow: 2px 6px 16px rgba(11,125,218,0.4);
+      animation: fadeInTitle 1.3s ease;
+    }
+
+    @keyframes fadeInTitle {
+      from { opacity: 0; transform: translateY(-25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #e9f9ff;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      background-color: #0b7dda;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #0ea673;
+    }
+
+    .hero-profile {
+      position: absolute;
+      bottom: 0;
+      right: 50px;
+      width: 250px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      z-index: 3;
+    }
+
+    /* --- SECTION SERVICES --- */
+    .services {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .services h2 {
+      color: #0b7dda;
+      font-size: 2.2rem;
+      font-family: 'More Sugar', sans-serif;
+      margin-bottom: 40px;
+    }
+
+    .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-    .team-member {
+
+    .service-item {
       background: #f9fcff;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 30px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .service-item img {
+      width: 70px;
+      margin-bottom: 15px;
+    }
+
+    .service-item h3 {
+      color: #0ea673;
+      font-size: 1.1rem;
+    }
+
+    /* --- SECTION CONTACT --- */
+    .contact {
       text-align: center;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #0b7dda, #0ea673);
+      color: white;
     }
-    .team-member:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+
+    .contact h2 {
+      font-family: 'More Sugar', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 25px;
     }
-    .team-member img {
+
+    .contact a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .btn-whatsapp {
+      display: inline-block;
+      margin-top: 20px;
+      background: #25D366;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1da851;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      background: #0b7dda;
+      color: #fff;
+    }
+
+    footer img {
       width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
       margin-bottom: 10px;
     }
-    .team-member h3 {
-      color: #0b7dda;
-      margin-bottom: 5px;
-    }
-    .team-member p {
-      color: #444;
-      font-size: 14px;
-      margin: 0;
-    }
 
-    footer {
-      text-align: center;
-      padding: 30px 10px;
-      background: #0b7dda;
-      color: #fff;
-      margin-top: 50px;
-    }
-    a {
-      color: #0b7dda;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 22px; }
-      main { margin: 20px; padding: 15px; }
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero-profile {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
+
 </head>
 <body>
 
-  <header>
-    <img src="boid-logo.png" alt="Logo BOID Creativity">
-    <h1>Ben-Innov Digital</h1>
-    <p>Formations professionnelles & services en marketing digital</p>
+  <header class="hero">
+    <!-- Logo PNG -->
+    <img src="images/logo/boid-logo.png" alt="Logo Ben-Innov Digital" class="logo">
+    <div class="hero-content">
+      <h1>Ben-Innov Digital</h1>
+      <p>Formations professionnelles & services en marketing digital</p>
+      <a href="#services" class="btn-primary">Découvrir nos formations</a>
+    </div>
+    <!-- Portrait PNG -->
+    <img src="images/portraits/idriss-profil.png" alt="Ben Idriss DJOMBI" class="hero-profile">
   </header>
 
-  <main>
-    <h2>Bienvenue 👋🏽</h2>
-    <p>
-      Nous accompagnons les jeunes talents du Congo dans le développement de compétences digitales,
-      le community management, la création de contenu et la stratégie de marque.
-    </p>
-
-    <h2>Nos services</h2>
-    <ul>
-      <li>Formation en Community Management</li>
-      <li>Création de sites web et portfolios</li>
-      <li>Consulting en marketing digital</li>
-      <li>Création de contenus pour réseaux sociaux</li>
-    </ul>
-
-    <h2>Notre équipe</h2>
-    <div class="team">
-      <div class="team-member">
-        <img src="idriss.jpg" alt="Idriss Ben-Innov">
-        <h3>Ben-Idriss DJOMBI</h3>
-        <p>Fondateur & Consultant Digital</p>
+  <section id="services" class="services">
+    <h2>Nos Services</h2>
+    <div class="service-grid">
+      <div class="service-item">
+        <img src="images/icons/formation-icon.jpg" alt="Formation Community Management">
+        <h3>Formation en Community Management</h3>
       </div>
-      <div class="team-member">
-        <img src="fatoumata.jpg" alt="Fatoumata">
-        <h3>Fatoumata Coulibaly</h3>
-        <p>Community Manager</p>
+      <div class="service-item">
+        <img src="images/icons/web-icon.jpg" alt="Création de sites web">
+        <h3>Création de sites web & portfolios</h3>
       </div>
-      <div class="team-member">
-        <img src="cheridon.jpg" alt="Cheridon">
-        <h3>Cheridon Mbong</h3>
-        <p>Spécialiste IA & Communication Digitale</p>
+      <div class="service-item">
+        <img src="images/icons/marketing-icon.jpg" alt="Consulting Marketing Digital">
+        <h3>Consulting en Marketing Digital</h3>
       </div>
-      <div class="team-member">
-        <img src="olaure.jpg" alt="Olaure">
-        <h3>Olaure Kifouki</h3>
-        <p>Creative Director</p>
-      </div>
-      <div class="team-member">
-        <img src="linsey.jpg" alt="Linsey">
-        <h3>Linsey Onéssia</h3>
-        <p>Community Manager & Fondatrice GrAfrique</p>
+      <div class="service-item">
+        <img src="images/icons/contenu-icon.jpg" alt="Création de contenu">
+        <h3>Création de contenus pour réseaux sociaux</h3>
       </div>
     </div>
+  </section>
 
+  <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>
-      📧 <a href="mailto:beninnovdigital@gmail.com">beninnovdigital@gmail.com</a><br>
-      📍 Brazzaville, République du Congo<br>
-      🌍 <a href="https://beninnovdigital.github.io">beninnovdigital.github.io</a>
-    </p>
-  </main>
+    <p>📧 <a href="mailto:beninnovdigital@gmail.com">beninnovdigital@gmail.com</a></p>
+    <p>📍 Brazzaville, République du Congo</p>
+    <a href="https://wa.me/242XXXXXXXX" class="btn-whatsapp">Contacter sur WhatsApp</a>
+  </section>
 
   <footer>
+    <img src="images/logo/boid-logo.png" alt="Logo Ben-Innov Digital">
     <p>© 2025 Ben-Innov Digital — Tous droits réservés</p>
   </footer>
 
-</body>
-</html>      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    h2 {
-      color: #0b7dda;
-      border-left: 5px solid #0b7dda;
-      padding-left: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 30px 10px;
-      background: #0b7dda;
-      color: #fff;
-      margin-top: 50px;
-    }
-    a {
-      color: #0b7dda;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <img src="boid-logo.png" alt="Logo BOID Creativity">
-    <h1>Ben-Innov Digital</h1>
-    <p>Formations professionnelles & services en marketing digital</p>
-  </header>
-
-  <main>
-    <h2>Bienvenue 👋🏽</h2>
-    <p>
-      Nous accompagnons les jeunes talents du Congo dans le développement de compétences digitales,
-      le community management, la création de contenu et la stratégie de marque.
-    </p>
-
-    <h2>Nos services</h2>
-    <ul>
-      <li>Formation en Community Management</li>
-      <li>Création de sites web et portfolios</li>
-      <li>Consulting en marketing digital</li>
-      <li>Création de contenus pour réseaux sociaux</li>
-    </ul>
-
-    <h2>Contact</h2>
-    <p>
-      📧 <a href="mailto:beninnovdigital@gmail.com">beninnovdigital@gmail.com</a><br>
-      📍 Brazzaville, République du Congo<br>
-      🌍 <a href="https://beninnovdigital.github.io">beninnovdigital.github.io</a>
-    </p>
-  </main>
-
-  <footer>
-    <p>© 2025 Ben-Innov Digital — Tous droits réservés</p>
-  </footer>
+  <script>
+    // Défilement fluide
+    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 
 </body>
-  </html>
+      </html>
